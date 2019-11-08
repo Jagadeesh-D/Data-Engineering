@@ -27,18 +27,18 @@ song_data/A/A/B/TRAABJL12903CDCF1A.json
 ```
 Example record: 
 ```
-	{
-	   "num_songs":1,
-	   "artist_id":"ARJIE2Y1187B994AB7",
-	   "artist_latitude":null,
-	   "artist_longitude":null,
-	   "artist_location":"",
-	   "artist_name":"Line Renaud",
-	   "song_id":"SOUPIRU12A6D4FA1E1",
-	   "title":"Der Kleine Dompfaff",
-	   "duration":152.92036,
-	   "year":0
-	}
+{
+   "num_songs":1,
+   "artist_id":"ARJIE2Y1187B994AB7",
+   "artist_latitude":null,
+   "artist_longitude":null,
+   "artist_location":"",
+   "artist_name":"Line Renaud",
+   "song_id":"SOUPIRU12A6D4FA1E1",
+   "title":"Der Kleine Dompfaff",
+   "duration":152.92036,
+   "year":0
+}
 ```
 
 **Log dataset**
@@ -48,28 +48,28 @@ Each file is in JSON format and contains activity log from music streaming app b
 log_data/2018/11/2018-11-12-events.json
 log_data/2018/11/2018-11-13-events.json
 ```
-Example record: ![Formatted](https://github.com/Jagadeesh-D/Data-Engineering/tree/master/Project_1_Data_Modeling_with_Postgres/images/log-json.png)
+Example record: 
 ```
-	{
-	   "artist":"Muse",
-	   "auth":"Logged In",
-	   "firstName":"Harper",
-	   "gender":"M",
-	   "itemInSession":1,
-	   "lastName":"Barrett",
-	   "length":209.50159,
-	   "level":"paid",
-	   "location":"New York-Newark-Jersey City, NY-NJ-PA",
-	   "method":"PUT",
-	   "page":"NextSong",
-	   "registration":1540685364796.0,
-	   "sessionId":275,
-	   "song":"Supermassive Black Hole (Twilight Soundtrack Version)",
-	   "status":200,
-	   "ts":1541721977796,
-	   "userAgent":"\"Mozilla\/5.0 (Windows NT 6.3; WOW64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/36.0.1985.143 Safari\/537.36\"",
-	   "userId":"42"
-	}
+{
+   "artist":"Muse",
+   "auth":"Logged In",
+   "firstName":"Harper",
+   "gender":"M",
+   "itemInSession":1,
+   "lastName":"Barrett",
+   "length":209.50159,
+   "level":"paid",
+   "location":"New York-Newark-Jersey City, NY-NJ-PA",
+   "method":"PUT",
+   "page":"NextSong",
+   "registration":1540685364796.0,
+   "sessionId":275,
+   "song":"Supermassive Black Hole (Twilight Soundtrack Version)",
+   "status":200,
+   "ts":1541721977796,
+   "userAgent":"\"Mozilla\/5.0 (Windows NT 6.3; WOW64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/36.0.1985.143 Safari\/537.36\"",
+   "userId":"42"
+}
 ```
 
 ### Schema 
@@ -105,16 +105,18 @@ start_time, hour, day, week, month, year, weekday
 
 *sql_queries.py* contains all your sql queries, and is imported into the last three files above.
 
+
 ### ETL pipeline
 ~~~
+
 1. Connect to the database and get a cursor
 2. Process *song_data* files one at a time looping through tree of files under */data/song_data*
-	a) convert the file with JSON data to pandas object using ![read_json](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_json.html)
+	a) convert the file with JSON data to pandas object using read_json
 	b) loop through each row and prepare attributes for insertion 
 	c) insert song record
 	d) insert artist record
 3. Process *log_data* files one at a time looping through tree of files under */data/log_data*
-	a) convert the file with JSON data to pandas object using ![read_json](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_json.html)
+	a) convert the file with JSON data to pandas object using read_json
 	b) filter record where *page* is *NextSong*
 	c) loop through each row and prepare attributes for insertion 
 	c) convert ts column from ms to datetime
@@ -123,4 +125,5 @@ start_time, hour, day, week, month, year, weekday
 	f) identify *songid* and *artistid* based on song, artist and length
 	g) prepare the record for insertion by leveraging index as primary key
 	h) insert songplay records
+
 ~~~ 
