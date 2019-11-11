@@ -113,8 +113,8 @@ start_time, hour, day, week, month, year, weekday
 2. Process *song_data* files one at a time looping through tree of files under */data/song_data*
 	a) convert the file with JSON data to pandas object using read_json
 	b) loop through each row and prepare attributes for insertion 
-	c) insert song record
-	d) insert artist record
+	c) insert artist record
+	d) insert song record
 3. Process *log_data* files one at a time looping through tree of files under */data/log_data*
 	a) convert the file with JSON data to pandas object using read_json
 	b) filter record where *page* is *NextSong*
