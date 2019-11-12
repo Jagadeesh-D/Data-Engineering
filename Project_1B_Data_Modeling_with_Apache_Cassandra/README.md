@@ -46,7 +46,7 @@ user_id, session_id, artist_name, song, first_name, last_name, item_in_session
 
 song, user_id, first_name, last_name
 
-### Structure
+### Structure and ETL Process
 The project template includes one Jupyter Notebook file which:
 1. Creates tables modeled by considering the queries that need to be supported
 2. Processes the *event_datafile_new.csv* dataset to create a denormalized dataset
