@@ -35,19 +35,22 @@ Using the event data set, the tables are modeled and created for queries on song
 **Tables**
 
 *sessions* - supports queries to identify song that was listened in a specific session/item combination
+
 session_id, item_in_session, artist_name, song, length
 
 *user_sessions* - supports queries to identify what songs user listened to in a session(listing them in the order listened)
+
 user_id, session_id, artist_name, song, first_name, last_name, item_in_session
 
 *song_listeners* - supports queries to identify what users listened to a particular song
+
 song, user_id, first_name, last_name
 
 ### Structure
 The project template includes one Jupyter Notebook file which:
-1. Processes the *event_datafile_new.csv* dataset to create a denormalized dataset
-2. Load the data into tables you create in Apache Cassandra
-3. Models the data tables considering the queries that need to be supported
-4. Running the queries used to model your data tables for to test the data
+1. Creates tables modeled by considering the queries that need to be supported
+2. Processes the *event_datafile_new.csv* dataset to create a denormalized dataset
+3. Loads the data into tables created in Apache Cassandra
+4. Runs the queries used to model your data tables for to test the data
 
 
