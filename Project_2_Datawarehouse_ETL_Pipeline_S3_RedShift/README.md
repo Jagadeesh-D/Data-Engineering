@@ -64,7 +64,7 @@ Example record:
   "song": "Almost Lover (Album Version)",
   "status": 200,
   "ts": 1541377992796,
-  "userAgent": "\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.125 Safari/537.36\"",
+  "userAgent": "\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4)"",
   "userId": "69"
 }
 ```
@@ -104,7 +104,7 @@ The project template includes one Jupyter Notebook file which:
 4. Runs analytical queries to provide insights in what songs their users are listening to
 
 ### Analytics
-![analytics](./analytics.png)
+![analytics](./analytics.jpg)
 
 
 
